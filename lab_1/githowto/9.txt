@@ -1,0 +1,15 @@
+git log
+
+git log --pretty=oneline
+
+git log --oneline --max-count=2
+git log --oneline --since="5 minutes ago"
+git log --oneline --until="5 minutes ago"
+git log --oneline --author="Your Name"
+git log --oneline --all
+
+git log --all --pretty=format:"%h %cd %s (%an)" --since="7 days ago"
+git log --pretty=format:"%h %ad | %s%d [%an]" --date=short
+
+git config --global format.pretty '%h %ad | %s%d [%an]'
+git config --global log.date short

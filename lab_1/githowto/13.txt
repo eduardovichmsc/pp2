@@ -1,0 +1,8 @@
+git add hello.html
+
+git status
+
+git restore --staged hello.html
+
+git restore hello.html
+git status

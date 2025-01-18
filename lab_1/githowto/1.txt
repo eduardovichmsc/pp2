@@ -1,0 +1,13 @@
+# 1
+git config --global user.name "Your Name"
+git config --global user.email "your_email@whatever.com"
+
+# 2
+git config --global init.defaultBranch main
+
+# 3
+git config --global core.autocrlf input
+git config --global core.safecrlf warn
+--------
+git config --global core.autocrlf true
+git config --global core.safecrlf warn

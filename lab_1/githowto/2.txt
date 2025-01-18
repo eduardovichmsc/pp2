@@ -1,0 +1,10 @@
+mkdir work
+cd work
+touch hello.html
+
+# Output Hello, World!
+
+git init
+
+git add hello.html
+git commit -m "Initial Commit"

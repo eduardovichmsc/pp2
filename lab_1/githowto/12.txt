@@ -1,0 +1,7 @@
+git switch main
+
+git status
+
+git restore hello.html
+git status
+cat hello.html

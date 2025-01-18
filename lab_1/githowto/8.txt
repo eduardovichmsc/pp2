@@ -1,0 +1,11 @@
+git add hello.html
+
+git status
+
+git commit -m "Added standard HTML page tags"
+git status
+
+git add .
+git status
+
+git commit -m "Added HTML header"
