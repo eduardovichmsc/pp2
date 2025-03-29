@@ -8,8 +8,6 @@ frame_size_y= 840
 pygame.init()
 pygame.mixer.init()
 
-winter = pygame.mixer.Sound("winter.wav")
-
 pygame.display.set_caption("Snake Game")
 game_window = pygame.display.set_mode((frame_size_x, frame_size_y))
 
