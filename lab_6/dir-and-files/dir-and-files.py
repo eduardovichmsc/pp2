@@ -1,6 +1,6 @@
 import os
 
-path = "C:/Users/eduar/Desktop/pp2/lab_6/dir-and-files/"
+path = "C:/Users/eduar/Desktop/github/pp2/lab_6/dir-and-files/"
 
 # Task 1
 listDir = os.listdir(path)
@@ -46,10 +46,10 @@ copyTo.write(text)
 filename = "delete_me.txt"
 create_file_to_delete = open(path + "/" + filename, "w")
 is_path_exist = os.path.exists(path + "/" + filename)
-print(is_path_exist)
+# print(is_path_exist)
 
 is_d_accesed = os.access(filename, os.X_OK)
-print(is_d_accesed)
+# print(is_d_accesed)
 
 # if is_path_exist:
 #   os.remove(path + "/" + filename)

@@ -9,10 +9,10 @@ display = pygame.display.set_mode((WIDTH, HEIGHT))
 pygame.display.set_caption("miki-rurk")
 clock = pygame.time.Clock()
 
-base_path = r"C:\Users\Darzhan Eduardovich\Desktop\pp2\Lab7\task1"
-image_miki = pygame.image.load(os.path.join(base_path, "assets/clock.png"))
-image_min = pygame.image.load(os.path.join(base_path, "assets/min.png"))
-image_sec = pygame.image.load(os.path.join(base_path, "assets/sec.png"))
+base_path = r"C:\Users\Darzhan Eduardovich\Desktop\github\pp2\lab_7\clock"
+image_miki = pygame.image.load(os.path.join(base_path, "assets\clock.png"))
+image_min = pygame.image.load(os.path.join(base_path, "assets\min.png"))
+image_sec = pygame.image.load(os.path.join(base_path, "assets\sec.png"))
 
 center_pos = (WIDTH // 2, HEIGHT // 2)
 sec_angle = 60

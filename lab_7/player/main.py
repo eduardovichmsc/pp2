@@ -9,7 +9,7 @@ pygame.display.set_caption('Аудио Плеер')
 
 pygame.mixer.init()
 
-ASSETS_PATH = r"C:\Users\Darzhan Eduardovich\Desktop\pp2\Lab7\player"
+ASSETS_PATH = r"C:\Users\Darzhan Eduardovich\Desktop\github\pp2\lab_7\player"
 AUDIO_FOLDER = os.path.join(ASSETS_PATH, "music")
 BUTTONS_FOLDER = os.path.join(ASSETS_PATH, "buttons")
 audio_files = [
