@@ -1,6 +1,5 @@
 import psycopg2
 import csv
-import msvcrt
 import os
 
 conn = psycopg2.connect(
@@ -77,31 +76,21 @@ menu_items = [
 ]
 def clear():
     os.system("cls" if os.name == "nt" else "clear")
-def print_menu(selected):
+def print_menu():
     clear()
     print("--- PhoneBook Menu ---\n")
     for i, item in enumerate(menu_items):
-        if i == selected:
-            print(f"> {item}")
-        else:
-            print(f"  {item}")
+        print(f"{i + 1}. {item}")
 def menu_loop():
-    selected = 0
     while True:
-        print_menu(selected)
-        key = msvcrt.getch()
-        
-        if key == b'\xe0':
-            key = msvcrt.getch()
-            if key == b'H':  
-                # Up
-                selected = (selected - 1) % len(menu_items)
-            elif key == b'P':  
-                # Down
-                selected = (selected + 1) % len(menu_items)
-        elif key == b'\r':  
-            # Enter
-            return selected
+        print_menu()
+        choice = input("\nSelect an option (1-6): ")
+        if choice.isdigit():
+            index = int(choice) - 1
+            if 0 <= index < len(menu_items):
+                return index
+        print("Invalid input. Please enter a number from 1 to 6.")
+        input("Press Enter to try again...")
 
 if __name__ == "__main__":
     create_table()
@@ -112,27 +101,31 @@ if __name__ == "__main__":
         if choice == 0:
             clear()
             insert_user_console()
+            input("\nPress Enter to return to menu...")
         elif choice == 1:
             clear()
             filename = input("\nEnter CSV filename (e.g., contacts.csv): ")
             insert_from_csv(filename)
+            input("\nPress Enter to return to menu...")
         elif choice == 2:
             clear()
             name = input("\n Enter name of the user to update: ")
             new_name = input("\nEnter new name (or press Enter to skip): ")
             new_phone = input("\nEnter new phone (or press Enter to skip): ")
             update_user(name, new_name if new_name else None, new_phone if new_phone else None)
+            input("\nPress Enter to return to menu...")
         elif choice == 3:
             clear()
             filter_by = input("\nFilter by 'name', 'phone' or leave blank for all: ")
             value = input("\nEnter value to search (or leave blank): ")
             query_data(filter_by if filter_by else None, value if value else None)
+            input("\nPress Enter to return to menu...")
         elif choice == 4:
             clear()
             value = input("\nEnter name or phone of the user to delete: ")
             delete_user(value)
+            input("\nPress Enter to return to menu...")
         elif choice == 5:
             break
 
     close()
-

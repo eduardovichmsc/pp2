@@ -1,8 +1,6 @@
 import psycopg2
-import msvcrt
 import os
 import csv
-
 
 try:
     conn = psycopg2.connect(
@@ -17,7 +15,6 @@ except Exception as e:
     print(f"Ошибка подключения к БД: {e}")
     exit(1)
 
-
 menu_items = [
     "Insert user (console input)",
     "Insert users from CSV",
@@ -29,30 +26,25 @@ menu_items = [
     "Exit"
 ]
 
-def clear(): os.system("cls" if os.name == "nt" else "clear")
+def clear():
+    os.system("cls" if os.name == "nt" else "clear")
 
-def print_menu(selected):
+def print_menu():
     clear()
     print("--- PhoneBook Menu ---\n")
     for i, item in enumerate(menu_items):
-        print(f"> {item}" if i == selected else f"  {item}")
+        print(f"{i + 1}. {item}")
 
 def menu_loop():
-    selected = 0
     while True:
-        print_menu(selected)
-        key = msvcrt.getch()
-        if key == b'\xe0':
-            key = msvcrt.getch()
-            if key == b'H':  
-              # Up
-                selected = (selected - 1) % len(menu_items)
-            elif key == b'P':  
-              # Down
-                selected = (selected + 1) % len(menu_items)
-        elif key == b'\r':  
-            # Enter
-            return selected
+        print_menu()
+        choice = input("\nSelect an option (1-8): ").strip()
+        if choice.isdigit():
+            index = int(choice) - 1
+            if 0 <= index < len(menu_items):
+                return index
+        print("Invalid input. Please enter a number from 1 to 8.")
+        input("Press Enter to try again...")
 
 def insert_user_console():
     name = input("Enter name: ").strip()
@@ -184,7 +176,6 @@ def close():
     cur.close()
     conn.close()
 
-
 if __name__ == "__main__":
     try:
         while True:
@@ -207,6 +198,6 @@ if __name__ == "__main__":
                 delete_user()
             elif choice == 7:
                 break
-            input("\nPress any key to continue...")
+            input("\nPress Enter to return to menu...")
     finally:
         close()
